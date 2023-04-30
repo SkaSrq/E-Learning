@@ -12,7 +12,7 @@ import "./styles.css";
 
 const Login = () => {
   const googleLogin = () => {
-    window.open("http://localhost:8089/auth/google", "_self");
+    window.open(`${process.env.REACT_APP_API_URL}/auth/google`, "_self");
   };
   return (
     <div className="login-box">
