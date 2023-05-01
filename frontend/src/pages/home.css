@@ -48,6 +48,7 @@
 }
 
 .categories {
+  width: 100%;
   background-color: #fff;
   padding: 3rem 5%;
 }
