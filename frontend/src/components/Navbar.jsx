@@ -62,18 +62,18 @@ const Navbar = () => {
   if (searchQuery.length == 0) {
     dispatch(searchCancel());
   }
-  useEffect(() => {
-    const handleHistoryChange = () => {
-      dispatch(searchCancel());
-      console.log("Back or reload button clicked");
-    };
+  // useEffect(() => {
+  //   const handleHistoryChange = () => {
+  //     dispatch(searchCancel());
+  //     console.log("Back or reload button clicked");
+  //   };
 
-    window.addEventListener("beforeunload", handleHistoryChange);
+  //   window.addEventListener("beforeunload", handleHistoryChange);
 
-    return () => {
-      window.removeEventListener("beforeunload", handleHistoryChange);
-    };
-  }, []);
+  //   return () => {
+  //     window.removeEventListener("beforeunload", handleHistoryChange);
+  //   };
+  // }, []);
   return (
     <div style={{ height: "46px" }}>
       <MDBNavbar expand="lg" fixed="top" light bgColor="light">
