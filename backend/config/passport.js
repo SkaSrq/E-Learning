@@ -11,7 +11,7 @@ passport.use(
       scope: ["profile", "email"]
     },
     function (accessToken, refreshToken, profile, callback) {
-      console.log("profile");
+      console.log("profile", profile);
       User.findOneAndUpdate(
         { email: profile.emails[0].value },
         {
