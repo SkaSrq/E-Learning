@@ -7,9 +7,11 @@ passport.use(
       clientID: process.env.CLIENT_ID,
       clientSecret: process.env.CLIENT_SECRET,
       callbackURL: "/auth/google/callback",
+      passReqToCallback: true,
       scope: ["profile", "email"]
     },
     function (accessToken, refreshToken, profile, callback) {
+      console.log("profile");
       User.findOneAndUpdate(
         { email: profile.emails[0].value },
         {

@@ -45,9 +45,12 @@ app.use(
   })
 );
 app.use("/auth", authRoute);
-app.use("/api/v1/courses", coursesRoute);
-app.use("/api/v1/category", categoryRoute);
-app.use("/api/v1/quiz", quizRoute);
+const isLoggedIn = (req, res, next) => {
+  req.user ? next() : res.status(401);
+};
+app.use("/api/v1/courses", isLoggedIn, coursesRoute);
+app.use("/api/v1/category", isLoggedIn, categoryRoute);
+app.use("/api/v1/quiz", isLoggedIn, quizRoute);
 const PORT = process.env.PORT || 8089;
 app.listen(PORT, () => {
   console.log(`Server listening on ${PORT}`);
