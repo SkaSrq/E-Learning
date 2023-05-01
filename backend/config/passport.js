@@ -12,21 +12,23 @@ passport.use(
     },
     function (accessToken, refreshToken, profile, callback) {
       console.log("profile", profile);
-      User.findOneAndUpdate(
-        { email: profile.emails[0].value },
-        {
-          name: profile.displayName,
-          email: profile.emails[0].value,
-          profilePicture: profile.photos[0].value
-        },
-        { new: true, upsert: true }
-      )
-        .then((user) => {
-          console.log("user updated successfully. USER:", user);
-        })
-        .catch((err) => {
-          console.log(err);
-        });
+      if (profile) {
+        User.findOneAndUpdate(
+          { email: profile.emails[0].value },
+          {
+            name: profile.displayName,
+            email: profile.emails[0].value,
+            profilePicture: profile.photos[0].value
+          },
+          { new: true, upsert: true }
+        )
+          .then((user) => {
+            console.log("user updated successfully. USER:", user);
+          })
+          .catch((err) => {
+            console.log(err);
+          });
+      }
       callback(null, profile);
     }
   )
