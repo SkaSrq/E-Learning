@@ -25,6 +25,17 @@ mongoose
   .catch((err) => {
     console.log(err);
   });
+app.set("trust proxy", 1);
+app.use(function (req, res, next) {
+  res.header("Access-Control-Allow-Credentials", true);
+  res.header("Access-Control-Allow-Origin", "https://my.godaddy.subdomain");
+  res.header(
+    "Access-Control-Allow-Headers",
+    "Origin, X-Requested-With, Content-Type, Accept, Authorization, X-HTTP-Method-Override, Set-Cookie, Cookie"
+  );
+  res.header("Access-Control-Allow-Methods", "GET, POST, PUT, DELETE");
+  next();
+});
 app.use(
   cookieSession({
     name: "l_session",
