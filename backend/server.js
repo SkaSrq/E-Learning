@@ -33,7 +33,7 @@ app.use(
   })
 );
 app.use("/health", (req, res) => {
-  return res.status(200).json({ status: "UP" });
+  return res.status(200).json({ status: "UP", p: process.env });
 });
 app.use(passport.initialize());
 app.use(passport.session());
