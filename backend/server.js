@@ -41,7 +41,7 @@ app.use(
     name: "l_session",
     keys: ["assignment"],
     maxAge: 24 * 60 * 60 * 100,
-    domain: process.env.CLIENT_URL
+    domain: ".e-learning-14933.web.app"
   })
 );
 app.use("/health", (req, res) => {
