@@ -28,7 +28,7 @@ mongoose
 app.set("trust proxy", 1);
 app.use(function (req, res, next) {
   res.header("Access-Control-Allow-Credentials", true);
-  res.header("Access-Control-Allow-Origin", "https://my.godaddy.subdomain");
+  res.header("Access-Control-Allow-Origin", "https://e-learning-14933.web.app");
   res.header(
     "Access-Control-Allow-Headers",
     "Origin, X-Requested-With, Content-Type, Accept, Authorization, X-HTTP-Method-Override, Set-Cookie, Cookie"
@@ -40,7 +40,8 @@ app.use(
   cookieSession({
     name: "l_session",
     keys: ["assignment"],
-    maxAge: 24 * 60 * 60 * 100
+    maxAge: 24 * 60 * 60 * 100,
+    domain: process.env.CLIENT_URL
   })
 );
 app.use("/health", (req, res) => {
