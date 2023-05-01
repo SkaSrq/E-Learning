@@ -27,7 +27,7 @@ mongoose
   });
 app.use(
   cookieSession({
-    name: "session",
+    name: "l_session",
     keys: ["assignment"],
     maxAge: 24 * 60 * 60 * 100
   })
