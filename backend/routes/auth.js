@@ -17,7 +17,7 @@ router.get("/login/failed", (req, res) => {
 });
 
 router.get("/login/success", (req, res) => {
-  console.log(req);
+  console.log(req.user);
   if (!req.user) {
     return res.status(403).json({
       error: true,

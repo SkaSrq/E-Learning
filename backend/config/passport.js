@@ -21,11 +21,11 @@ passport.use(
       )
         .then((user) => {
           console.log("user updated successfully. USER:", user);
+          callback(null, user);
         })
         .catch((err) => {
           console.log(err);
         });
-      callback(null, profile);
     }
   )
 );
